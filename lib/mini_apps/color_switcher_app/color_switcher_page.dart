@@ -1,9 +1,11 @@
 import 'package:fluent_ui/fluent_ui.dart';
-import 'package:matest_blog/mini_apps/color_switcher_app/color_switcher_code.dart';
-import 'package:matest_blog/widgets/code_snippet/code_snippet_widget.dart';
-import 'package:matest_blog/widgets/phone_simulator/phone_simulator_widget.dart';
+import 'app/color_switcher_button.dart';
+import 'app/color_switcher_config.dart';
+import 'app/color_switcher_screen.dart';
+import '../../widgets/code_snippet/code_snippet_widget.dart';
+import '../../widgets/phone_simulator/phone_simulator_widget.dart';
 
-import 'color_switcher_app.dart';
+import 'app/color_switcher_app.dart';
 
 class ColorSwitcherPage extends StatefulWidget {
   const ColorSwitcherPage({Key? key}) : super(key: key);
@@ -20,11 +22,25 @@ class _ColorSwitcherPageState extends State<ColorSwitcherPage> {
       icon: const Icon(
         FluentIcons.code,
       ),
-      body: const SingleChildScrollView(
-        child: CodeSnippetWidget(
-          title: 'Color Switcher Material app',
-          code: colorSwitcherCode,
-        ),
+      body: ListView(
+        children: const [
+          CodeSnippetWidget(
+            title: 'color_switcher_app.dart',
+            code: colorSwitcherAppCode,
+          ),
+          CodeSnippetWidget(
+            title: 'color_switcher_config.dart',
+            code: colorSwitcherConfigCode,
+          ),
+          CodeSnippetWidget(
+            title: 'color_switcher_button.dart',
+            code: colorSwitcherButtonCode,
+          ),
+          CodeSnippetWidget(
+            title: 'color_switcher_screen.dart',
+            code: colorSwitcherScreenCode,
+          ),
+        ],
       ),
       onClosed: null,
     ),

@@ -1,11 +1,7 @@
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
-import 'package:matest_blog/mini_apps/color_switcher_app/color_switcher_code.dart';
 import 'package:matest_blog/sample.dart';
 import 'package:matest_blog/widgets/code_snippet/code_snippet_widget.dart';
-import 'package:matest_blog/widgets/phone_simulator/phone_simulator_widget.dart';
-
-import 'mini_apps/color_switcher_app/color_switcher_app.dart';
 import 'mini_apps/color_switcher_app/color_switcher_page.dart';
 
 void main() {
@@ -33,7 +29,6 @@ class _MyAppState extends State<MyApp> {
           padding: const EdgeInsets.all(8.0),
           child: CodeSnippetWidget(
             code: sampleCode,
-            onRun: () => sampleCodeResult,
           ),
         ),
       ),

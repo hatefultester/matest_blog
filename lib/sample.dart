@@ -1,4 +1,4 @@
-final sampleCode = """
+const sampleCode = """
 void main() {
   int i = 1;
   print(i);
@@ -8,7 +8,7 @@ void main() {
 }
 """;
 
-final sampleCodeResult = """
+const sampleCodeResult = """
 matest_blog% 1
 matest_blog% Hello world
 matest_blog% 2
