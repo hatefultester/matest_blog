@@ -2,43 +2,59 @@ import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:matest_blog/sample.dart';
 import 'package:matest_blog/widgets/code_snippet/code_snippet_widget.dart';
+import 'package:matest_blog/widgets/phone_simulator/phone_simulator_widget.dart';
 
+import 'mini_apps/color_switcher_app/app.dart';
 
 void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    const String title = 'Fluent UI Demo';
-    List<NavigationPaneItem> navigationItems = [
-      PaneItem(
-        icon: const Icon(Icons.home),
-        title: const Text('Home'),
-        body:  SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: CodeSnippetWidget(
-              code: sampleCode,
-              onRun: () => sampleCodeResult,
-            ),
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int _currentPageIndex = 0;
+
+  String title = 'Fluent UI Demo';
+
+  List<NavigationPaneItem> navigationItems = [
+    PaneItem(
+      icon: const Icon(Icons.home),
+      title: const Text('Home'),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: CodeSnippetWidget(
+            code: sampleCode,
+            onRun: () => sampleCodeResult,
           ),
         ),
       ),
-      PaneItem(
-        icon: const Icon(Icons.favorite),
-        title: const Text('Favorites'),
-        body: const SizedBox(),
+    ),
+    PaneItem(
+      icon: const Icon(Icons.favorite),
+      title: const Text('Favorites'),
+      body: const SingleChildScrollView(
+        child: PhoneSimulatorWidget(
+          app: ColorSwitcherApp(),
+        ),
       ),
-      PaneItem(
-        icon: const Icon(Icons.settings),
-        title: const Text('Settings'),
-        body: const SizedBox(),
-      ),
-    ];
+    ),
+    PaneItem(
+      icon: const Icon(Icons.settings),
+      title: const Text('Settings'),
+      body: const SizedBox(),
+    ),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+
 
     return FluentApp(
       themeMode: ThemeMode.dark,
@@ -48,11 +64,20 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       home: NavigationView(
-        appBar: const NavigationAppBar(
+        appBar: NavigationAppBar(
           title: Text(title),
           automaticallyImplyLeading: false,
         ),
-        pane: NavigationPane(items: navigationItems),
+        pane: NavigationPane(
+          displayMode: PaneDisplayMode.compact,
+          selected: _currentPageIndex,
+          onChanged: (index) {
+            setState(() {
+              _currentPageIndex = index;
+            });
+          },
+          items: navigationItems,
+        ),
       ),
     );
   }
