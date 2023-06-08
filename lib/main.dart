@@ -1,10 +1,12 @@
 import 'package:fluent_ui/fluent_ui.dart';
 import 'package:flutter/material.dart';
+import 'package:matest_blog/mini_apps/color_switcher_app/color_switcher_code.dart';
 import 'package:matest_blog/sample.dart';
 import 'package:matest_blog/widgets/code_snippet/code_snippet_widget.dart';
 import 'package:matest_blog/widgets/phone_simulator/phone_simulator_widget.dart';
 
-import 'mini_apps/color_switcher_app/app.dart';
+import 'mini_apps/color_switcher_app/color_switcher_app.dart';
+import 'mini_apps/color_switcher_app/color_switcher_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -39,11 +41,7 @@ class _MyAppState extends State<MyApp> {
     PaneItem(
       icon: const Icon(Icons.favorite),
       title: const Text('Favorites'),
-      body: const SingleChildScrollView(
-        child: PhoneSimulatorWidget(
-          app: ColorSwitcherApp(),
-        ),
-      ),
+      body: const ColorSwitcherPage(),
     ),
     PaneItem(
       icon: const Icon(Icons.settings),
@@ -54,8 +52,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-
-
     return FluentApp(
       themeMode: ThemeMode.dark,
       theme: FluentThemeData(

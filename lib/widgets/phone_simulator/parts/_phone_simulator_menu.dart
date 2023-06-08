@@ -95,7 +95,7 @@ class _PhoneSimulatorMenu extends StatelessWidget {
     ];
 
     return CommandBar(
-      mainAxisAlignment: MainAxisAlignment.end,
+      mainAxisAlignment: MainAxisAlignment.center,
       overflowBehavior: CommandBarOverflowBehavior.noWrap,
       primaryItems: [
         ...simpleCommandBarItems,

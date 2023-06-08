@@ -21,7 +21,7 @@ class CodeSnippetWidget extends StatefulWidget {
       {Key? key,
       required this.code,
       this.title = 'Sample code',
-      this.isRunnable = true,
+      this.isRunnable = false,
       this.onRun})
       : super(key: key);
 
