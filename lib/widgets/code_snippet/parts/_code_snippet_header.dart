@@ -15,7 +15,10 @@ class _CodeSnippetHeader extends StatelessWidget {
       width: double.infinity,
       child: Row(
         children: [
-          Text(title, style: kTitleTextStyle),
+          Text(
+            title,
+            style: Theme.of(context).textTheme.titleMedium,
+          ),
         ],
       ),
     );

@@ -8,17 +8,21 @@ class _CodeSnippetContent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: kContentPadding,
+      padding: MyPadding.codePadding,
       decoration: BoxDecoration(
         color: kDraculaBackground,
-        borderRadius: kBaseRadius,
+        borderRadius: BorderRadius.circular(4),
       ),
       alignment: Alignment.topLeft,
       child: HighlightView(
         code,
         language: 'dart',
         theme: kDraculaTheme,
-        textStyle: kCodeTextStyle,
+        textStyle: Theme.of(context).textTheme.bodyLarge!.merge(
+              const TextStyle(
+                fontFamily: 'FiraCode',
+              ),
+            ),
       ),
     );
   }
